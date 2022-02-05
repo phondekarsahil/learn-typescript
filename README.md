@@ -277,3 +277,13 @@ calc = (num1: number, num2: number, action: string) => {
     }
     return num1 - num2;
 }
+```
+
+## The DOM and Type Casting
+
+* For the most parts when we work with DOM in typescript it is the same as in javascript.
+* Typecasting allow you to convert a variable from one type to another type or to specify the type of the variable explicitly.
+```
+const form = document.querySelector('.new-item-form') as HTMLFormElement;
+console.log(form.children);
+```
