@@ -1,3 +1,13 @@
+var me = {
+    name: "ds",
+    age: 25,
+    speak: function (text) {
+        console.log(text);
+    },
+    spend: function (amount) {
+        return amount;
+    },
+};
 import { Invoice } from './classes/Invoice.js';
 var form = document.querySelector('.new-item-form');
 // console.log(form.children);

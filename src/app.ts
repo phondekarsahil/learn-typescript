@@ -1,3 +1,22 @@
+interface IsPerson {
+    name: string,
+    age: number,
+    speak(a: string): void,
+    spend(a: number): number;
+}
+
+const me: IsPerson = {
+    name: "ds", 
+    age: 25, 
+    speak(text: string): void {
+        console.log(text)
+    },
+    spend(amount: number): number {
+        return amount;
+    }, 
+}
+
+
 import {Invoice} from './classes/Invoice.js';
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement;

@@ -418,3 +418,30 @@ import {Invoice} from './classes/Invoice.js';
     2. It doesn't bundle our code into single file.. The browser is still using the module system to load seperate files and make multiple requests
 
 * To combat both of these downfalls you could throw webpack into the mix, that is going to buldle our code into a single file when its completed and that way we only have network request and all browsers are supported too.
+
+## Interfaces
+
+* Another tool that we can use in typescript that we can't in JavaScript is an interface.
+* Interface allows us to enforce a certain structure of a class or an object.
+* We can use it to describe what properties and what methods and what the types of those properties and return types of those methods are.
+* It looks similar to a class but it is not a class. We cannot generate objects using interface.
+```
+interface IsPerson {
+    name: string,
+    age: number,
+    speak(a: string): void,
+    spend(a: number): number;
+}
+
+const me: IsPerson = {
+    name: "sahil", 
+    age: 25, 
+    speak(text: string): void {
+        console.log(text)
+    },
+    spend(amount: number): number {
+        return amount;
+    }, 
+}
+```
+* We can also use interface as data type for variables and it enforces that structure on that variable.
