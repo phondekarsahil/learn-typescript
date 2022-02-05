@@ -12,14 +12,12 @@ form.addEventListener('submit', (e: Event) => {
 })
 
 class Invoice {
-    client: string;
-    details: string;
-    amount: number;
-    constructor(c: string, d:string, a: number){
-        this.client = c;
-        this.details = d;
-        this.amount =  a;
-    }
+
+    constructor(    
+        readonly client: string,
+        private details: string,
+        public amount: number
+        ){}
 
     format() {
         return `${this.client} owes Rs ${this.amount} for ${this.details}`;
@@ -27,6 +25,6 @@ class Invoice {
 }
 
 const inv1 = new Invoice("Sahil", "Work", 90);
-console.log(inv1);
+console.log(inv1.format());
 
 let invoices: Invoice[] =  []

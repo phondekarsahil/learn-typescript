@@ -10,10 +10,10 @@ form.addEventListener('submit', function (e) {
     console.log(type.value, tofrom.value, details.value, amount.valueAsNumber);
 });
 var Invoice = /** @class */ (function () {
-    function Invoice(c, d, a) {
-        this.client = c;
-        this.details = d;
-        this.amount = a;
+    function Invoice(client, details, amount) {
+        this.client = client;
+        this.details = details;
+        this.amount = amount;
     }
     Invoice.prototype.format = function () {
         return "".concat(this.client, " owes Rs ").concat(this.amount, " for ").concat(this.details);
@@ -21,5 +21,5 @@ var Invoice = /** @class */ (function () {
     return Invoice;
 }());
 var inv1 = new Invoice("Sahil", "Work", 90);
-console.log(inv1);
+console.log(inv1.format());
 var invoices = [];

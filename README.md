@@ -317,5 +317,45 @@ const inv1 = new Invoice("Sahil", "Work", 90);
 // variable can contain only Invoice objects
 let invoices: Invoice[] =  []
 ```
-* By default all of the properties of a class are public
+* By default all of the properties of a class are public, anyone can access and change these properties
 * We can use access modifiers to limit the permission for properties of a object
+
+## Public, Private and Readonly
+
+* We can specify the access type of a property by using the access modifiers
+* `public` - this is the default access modifier and we may or may not specify this
+* `private` - we can access this property inside the class using `this`, but cant access it outside the class directly. We can read and change value of this property inside the class.
+* `readonly` - we can read this property from outside and inside the class itself, but we can't change it 
+```
+class Invoice {
+    readonly client: string;
+    private details: string;
+    public amount: number;
+
+    constructor(c: string, d:string, a: number){
+        this.client = c;
+        this.details = d;
+        this.amount =  a;
+    }
+
+    format() {
+        return `${this.client} owes Rs ${this.amount} for ${this.details}`;
+    }
+}
+
+const inv1 = new Invoice("Sahil", "Work", 90);
+console.log(inv1.details); // not allowed
+```
+* When using access modifiers in constructors, it automatically creates these variables and assigns the parameters to the variables. 
+```
+ class Invoice {
+    constructor(
+        readonly client: string,
+        private details: string,
+        public amount: number
+    ){}
+
+    format() {
+        return `${this.client} owes Rs ${this.amount} for ${this.details}`;
+    }
+}
