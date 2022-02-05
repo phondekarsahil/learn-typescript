@@ -549,3 +549,16 @@ const docTwo: Resource<string[]> {
     data: ["pen", "bread"]
 }
 ```
+
+## Enums
+
+* Enums are special type in typescript which allows us to store set of constants or keyworks and associate them with a numeric value.
+```
+enum ResourceType { BOOK, AUTHOR, FILM, DIRECTOR, PERSON };
+
+ResourceType.BOOK; // 0
+ResourceType.AUTHOR; // 1
+ResourceType.FILM; // 2
+ResourceType.DIRECTOR; // 3
+ResourceType.PERSON; // 4
+```
