@@ -182,7 +182,7 @@ tsc --init
 ```
 {
     "compilerOptions": {
-        "target": "es2016",
+        "target": "es5",
         "module": "commonjs",  
         "rootDir": "./src", 
         "outDir": "./public",
@@ -197,7 +197,8 @@ tsc
 ```  
 {
     "compilerOptions": {
-        "target": "es2016",
+        ...
+        "target": "es5",
         "module": "commonjs",  
         "rootDir": "./src", 
         "outDir": "./public",
@@ -359,3 +360,61 @@ console.log(inv1.details); // not allowed
         return `${this.client} owes Rs ${this.amount} for ${this.details}`;
     }
 }
+```
+
+## Modules
+
+* In most of the larger applicataions typically it is easier to split our code in different modular files. This would make the project more structured and easier to read in the future.
+* The best way we can do this in TypeScript by using `es6 module system`, where we can import and export things from different files when we need to.
+* Modern browsers supports `es6` already in vanilla JavaScript. So we can use it in typescript as well.
+* Only modern browsers supports this feature out of the box.
+* Typescript does not compile the module system down into something older browsers understand as well.
+* So it is recommended to use `es6 Module System` with modern browsers (such as chrome and firefox) only.
+* If you are using `webpack` with your typescript project then you can side step that issue by bundling your code into one single file.
+* The first thing we need to do before we start working with this module system is to update the `tsconfig.json` file. We need to change the `module` property to `es2015` ECMAScript 2015.
+```
+{
+    "compilerOptions": {
+        ...
+        "module": "es2015
+        "target": "es5",
+        "module": "commonjs",  
+        "rootDir": "./src", 
+        "outDir": "./public",
+    },
+    "include": ["src"]
+}
+```
+* Also we need to update the `index.html`. Firstly find the `script` tag referencing the javascript file we are generating and add property `type="module"`
+```
+<script type="module" src='app.js'></script>
+```
+* We can access different typescript files using the `export` and `import` keywords
+
+**classes/Invoice.ts**
+```
+export class Invoice {
+
+    constructor(    
+        readonly client: string,
+        private details: string,
+        public amount: number
+        ){}
+
+    format() {
+        return `${this.client} owes Rs ${this.amount} for ${this.details}`;
+    }
+}
+```
+* Note: While importing the ts file we use the extention as `.js` as in the end all the files are going to get compiled into js files.
+
+**app.ts**
+```
+import {Invoice} from './classes/Invoice.js';
+```
+* Disadvantages of module system:
+    
+    1. Only modern browsers support this module system, so if a user is using an outdated browser or older browser, user can get error and it may not work.
+    2. It doesn't bundle our code into single file.. The browser is still using the module system to load seperate files and make multiple requests
+
+* To combat both of these downfalls you could throw webpack into the mix, that is going to buldle our code into a single file when its completed and that way we only have network request and all browsers are supported too.
