@@ -205,3 +205,42 @@ tsc
     "include": ["src"]
 }
 ```
+
+## Function Basics (and void)
+
+* To explicitly define a variable as a function in typescript we can use `Function` type
+```
+let greet: Function;
+
+greet = "some string"; // not allowed
+greet = () => {console.log("Hello")} // allowed
+```
+* Defining function parameter types
+```
+const add = (a: number, b: number) => {
+  return a+b;
+}
+```
+* We can define optional parameters by using `?` after the variable declaration. If not passed any value in optional parameters it's value will be `undefined`
+```
+const add = (a: number, b: number, c?: number|string) => {
+  return a+b;
+}
+```
+* If we define initial value to the optional parameter, we dont need to use `?`.
+```
+const add = (a: number, b: number, c: number = 10) => {
+  return a+b+c;
+}
+```
+* Note: Always do your required parameter first and the the optional parameters
+* We can also explicitly define the return type of the function or if we do not define the return type, it will automatically infer the return type based on the value returned.
+```
+const add = (a: number, b: number, c: number = 10): number => {
+  return a+b+c;
+}
+```
+* Return type of a function is `void` when the function don't actually return anything
+
+
+
