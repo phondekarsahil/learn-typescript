@@ -62,3 +62,40 @@ const circ = (diameter: number) => {
     return diameter * Math.PI;
 } 
 ```
+
+## Objects & Arrays
+* Suppose we define an array as follows:
+```
+let array1 = ["naruto", "kakashi", "sakura"];
+```
+* Here TypeScripts infers the data type of `array1` as string[] and allows only string values in that array
+* Also we cannot change the data type of `array1` to any other type such as `string`, `boolean`, `number`, etc
+* Also suppose we define an array of mixed data types as follows:
+```
+let array2 = ["naruto", 2, "sakura", 4];
+```
+* Here TypeScripts infers the data type of `array2` as `(string|number)` and allows only string and number values in that array.
+* For Objects
+```
+let ninja = {
+    name: 'Mario',
+    belt: 'black',
+    age: 25
+}
+ninja.age = 40; //allowed
+ninja.age = "old" // not allowed
+```
+* So here the properties of an object also infers the data type from the initial assignment and cannot be changes later on.
+* Also we can't change the structure of the object once it is assigned.
+```
+ninja = {
+    name: "Naruto",
+    belt: "Red",
+} // not allowed as property age is missing
+ninja = {
+    name: "kakashi",
+    belt: "black",
+    age: 40,
+    skill: "sharingan"
+} // not allowed as property skill is not in initial structure
+```
