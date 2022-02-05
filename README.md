@@ -562,3 +562,14 @@ ResourceType.FILM; // 2
 ResourceType.DIRECTOR; // 3
 ResourceType.PERSON; // 4
 ```
+
+## Tuples
+
+* These are litle bit like arrays and we use [ ] to define them, and the also use array methods. But there is one major difference, the types of data in each position in a tuple is fixed once its been initialized.
+```
+let arr = ['ryu', 24, true]; //array
+
+let tup: [string, number, boolean] // tuple
+tup = ["sahil", 7, true] // passes
+tup = [8, "sahil", false] // fails
+```
