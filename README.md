@@ -39,3 +39,26 @@ tsc sandbox.ts
 ```
 tsc sandbox.js --outFile sandbox.js -w
 ```
+
+## Types Basics
+
+* The main fundamental difference between typescript and javascript is that typescript uses strict types and javascript does not.
+* That means if we define a variable as a string, then in typescript it will always be string and it cannot be changed later. And same will be true for any other types like numbers, booleans, objects, arrays.
+* The way we declare variables in typescript is same as in javascript, using either let, const or var
+```
+let character = "naruto";
+let age = 13;
+let isBlackBelt = false;
+
+character = 13; // not allowed
+character = "kakashi"; // allowed
+age = "old"; // not allowed
+age = 25; // allowed
+``` 
+* We don't have to specifically say the variable type. TypeScript uses what's known as `Inference`, which infers the type of a variable based on the value we assign it
+* We can also explicitly define the data type that needs to be passed to the function by mentioning the data type in the function parameters as follows 
+```
+const circ = (diameter: number) => {
+    return diameter * Math.PI;
+} 
+```
