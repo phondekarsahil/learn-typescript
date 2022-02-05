@@ -243,4 +243,23 @@ const add = (a: number, b: number, c: number = 10): number => {
 * Return type of a function is `void` when the function don't actually return anything
 
 
+## Type Aliases
+
+* Typescript allows us to write our own type aliases, which we can define once and use at multiple places in our code.
+```
+type stringOrNumber = string | number
+type objWithName = {name: string, uid: stringOrNumber}
+
+let uid: string | number
+// is same as
+let uid: stringOrNumber
+
+const greet = (user: {name: string, uid: string | number}) => {
+    console.log(user);
+}
+// is same as
+const greet = (user: objWithName) => {
+    console.log(user);
+}
+```
 

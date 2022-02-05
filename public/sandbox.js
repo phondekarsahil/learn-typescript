@@ -1,8 +1,5 @@
 "use strict";
-let greet = () => {
-    console.log("Hello World");
+let uid;
+const greet = (user) => {
+    console.log(user);
 };
-const add = (a, b, c) => {
-    return a + b;
-};
-add(5, 7);

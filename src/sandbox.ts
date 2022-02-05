@@ -1,9 +1,8 @@
-let greet = () => {
-  console.log("Hello World");
-}
+type stringOrNumber = string | number
+type objWithName = {name: string, uid: stringOrNumber}
 
-const add = (a: number, b: number, c?: number|string) => {
-  return a+b;
-}
+let uid: stringOrNumber
 
-add(5, 7);
+const greet = (user: objWithName) => {
+    console.log(user);
+}
