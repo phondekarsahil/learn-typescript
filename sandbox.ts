@@ -97,3 +97,29 @@ let ninjaTwo: {
   beltColour: string
 };
 ninjaTwo = { name: 'ken', age: 20, beltColour: 'black' };
+
+
+// lesson 6
+let age6: any = 25;
+
+age6 = true;
+console.log(age6);
+age6 = 'hello';
+console.log(age6);
+age6 = { name: 'luigi' };
+console.log(age6);
+
+let mixed6: any[] = [];
+
+mixed.push(5);
+mixed.push('mario');
+mixed.push(false);
+console.log(mixed6);
+
+let ninja6: { name: any, age: any };
+
+ninja6 = { name: 'yoshi', age: 25 };
+console.log(ninja6);
+
+ninja6 = { name: 25, age: 'yoshi' };
+console.log(ninja6);

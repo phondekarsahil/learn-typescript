@@ -156,3 +156,16 @@ ninja2 = {
 } // allowed
 ```
 
+## Dynamic (any) Types
+
+* We use the `any` type in typescript to say that this variable would be any type in the future and can also change type in the future
+```
+let age: any = 25;
+age = true; // allowed
+age = "old"; // allowed
+age = {name: 'kakashi'};
+```
+* So we can change the variables in many different types. This though basically reverts the typescript to javascript and rips out most of the benefits of typescript. So it is better to use this only if required.
+
+
+
