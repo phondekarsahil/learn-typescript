@@ -33,11 +33,11 @@ numbers.push(25);
 // numbers.push('shaun');
 // numbers[0] = 'shaun';
 
-let mixed = ['ken', 4, 'chun-li', 8, 9];
+let mixed1 = ['ken', 4, 'chun-li', 8, 9];
 
-mixed.push('ryu');
-mixed.push(10);
-mixed[0] = 3;
+mixed1.push('ryu');
+mixed1.push(10);
+mixed1[0] = 3;
 
 // objects
 let ninja = {
@@ -57,3 +57,43 @@ ninja = {
   age: 40,
   // skills: ['running'],
 };
+
+
+// lesson 5
+
+let character1: string = 'mario';
+let age1: number;
+let isLoggedIn: boolean;
+
+// age = 'luigi';
+age = 30;
+
+// isLoggedIn = 25;
+isLoggedIn = true;
+
+// arrays
+let ninjas: string[] = [];
+
+ninjas.push('ryu');
+ninjas.push('chun-li');
+console.log(ninjas);
+
+// union types
+let mixed: (string|number|boolean)[] = [];
+mixed.push('hello');
+mixed.push(false);
+mixed.push(20);
+console.log(mixed);
+
+let uid: string|number;
+
+// objects
+let ninjaOne: object;
+ninjaOne = { name: 'yoshi', age: 30 };
+
+let ninjaTwo: {
+  name: string,
+  age: number,
+  beltColour: string
+};
+ninjaTwo = { name: 'ken', age: 20, beltColour: 'black' };

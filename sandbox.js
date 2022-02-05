@@ -24,10 +24,10 @@ var numbers = [10, 20, 12, 15];
 numbers.push(25);
 // numbers.push('shaun');
 // numbers[0] = 'shaun';
-var mixed = ['ken', 4, 'chun-li', 8, 9];
-mixed.push('ryu');
-mixed.push(10);
-mixed[0] = 3;
+var mixed1 = ['ken', 4, 'chun-li', 8, 9];
+mixed1.push('ryu');
+mixed1.push(10);
+mixed1[0] = 3;
 // objects
 var ninja = {
     name: 'mario',
@@ -43,3 +43,28 @@ ninja = {
     belt: 'orange',
     age: 40
 };
+// lesson 5
+var character1 = 'mario';
+var age1;
+var isLoggedIn;
+// age = 'luigi';
+age = 30;
+// isLoggedIn = 25;
+isLoggedIn = true;
+// arrays
+var ninjas = [];
+ninjas.push('ryu');
+ninjas.push('chun-li');
+console.log(ninjas);
+// union types
+var mixed = [];
+mixed.push('hello');
+mixed.push(false);
+mixed.push(20);
+console.log(mixed);
+var uid;
+// objects
+var ninjaOne;
+ninjaOne = { name: 'yoshi', age: 30 };
+var ninjaTwo;
+ninjaTwo = { name: 'ken', age: 20, beltColour: 'black' };

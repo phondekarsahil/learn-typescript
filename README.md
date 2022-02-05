@@ -99,3 +99,60 @@ ninja = {
     skill: "sharingan"
 } // not allowed as property skill is not in initial structure
 ```
+
+## Explicit and Union Types
+
+* Currently when we write our variables and assign them values, typescript automatically infers the variable type based on the value we give it.
+* But sometimes we might just want to initialize a variable without giving it a value so then it can't really infer its type and we can give it any value in the future.
+* But we can get around this by explicitly giving the variable a type.
+```
+let character: string;
+let age: number;
+let isLoggedIn: boolean;
+
+age = "old"; // not allowed
+age = 45; // allowed
+```
+* For arrays:
+```
+let ninjas: string[] = []; // can be array of only string
+// Note: It is best to initialize an array with empty []. 
+```
+* If we want to initialize an array with mixed data types we can use the `Union Types`
+* A Union Type is basically our way of saying it could be one of two or one of many types
+```
+let mixed: (string|number)[] = [];
+mixed.push("Hello"); //Allowed
+mixed.push(3); // Allowed
+mixed.push(false); // Not allowed
+```
+* We can also use Union Types on normal variables
+```
+let uid: string|number;
+uid = 323 // allowed
+uid = "abc" // allowed
+uid = false; // not allowed
+```
+* For Objects:
+```
+let ninja1: object;
+ninja1 = {
+    name: 'Mario',
+    belt: 'black',
+    age: 25
+} // allowed
+
+ninja1 = [] // allowed Because array also is type of object
+```
+* We can also define objects more specifically as follows:
+```
+let ninja2: {name: string, age: number, beltColor: string};
+
+ninja2 = {} //not allowed
+ninja2 = {
+    name: 'Mario',
+    age: 25,
+    beltColor: 'black',
+} // allowed
+```
+
