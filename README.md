@@ -481,3 +481,71 @@ let docOne: HasFormatter;
 /* this verifies that the object of the class has implemented that interface */
 docOne = new Invoice("Sahil", "Work", 250);
 ```
+
+## Generics
+
+* Generics allow us to create reusable blocks of code which can be used with different types.
+
+```
+const addUID = (obj: object) => {
+    let uid = Math.floor(Math.random() * 100);
+    return {...obj, uid};
+}
+
+let docOne = addUID({name: "Sahil", age: 25})
+console.log(docOne);
+```
+
+* In the above example we pass in an `object` as a parameter. And the problem here is that as we have not specified the properties of the object at function declaration, we can pass any different properties.
+* Also when accessing these properties inside the function, we don't know what properties will be received in that function.
+* We can combat this by using generics
+```
+const addUID = <T>(obj: T) => {
+    let uid = Math.floor(Math.random() * 100);
+    return {...obj, uid};
+}
+```
+* In above example we define generic inside `<` `>` brackets. Mostly we use `T` as a generic name but it can be anything.
+* So basically `<T>` this captures the `type` that is passed in the method call at run time, and we can use this `type` to define the data type of parameter in method.
+* Also we can enforce that generic variable to extend certain type to ensure strict types
+```
+const addUID = <T extends object>(obj: T) => {
+    let uid = Math.floor(Math.random() * 100);
+    return {...obj, uid};
+}
+```
+* You can also be more specific about the extention
+```
+const addUID = <T extends {name: string}>(obj: T) => {
+    let uid = Math.floor(Math.random() * 100);
+    return {...obj, uid};
+}
+```
+* Using Generics with Interfaces
+```
+interface Resource {
+    uid: number;
+    resourceName: string;
+    data: object
+}
+```
+* If in above example if we are not sure of the type of `data` variable, we can use generics and pass in the type while creating the object
+```
+interface Resource<T> {
+    uid: number;
+    resourceName: string;
+    data: T
+}
+
+const docOne: Resource<string> {
+    uid: 1,
+    resourceName: "person",
+    data: "Sahil"
+}
+
+const docTwo: Resource<string[]> {
+    uid: 1,
+    resourceName: "shoppinglist",
+    data: ["pen", "bread"]
+}
+```
