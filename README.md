@@ -167,5 +167,41 @@ age = {name: 'kakashi'};
 ```
 * So we can change the variables in many different types. This though basically reverts the typescript to javascript and rips out most of the benefits of typescript. So it is better to use this only if required.
 
+## Better Workflow and tsconfig
 
-
+* When you are creating a project thats a bit complex, you might have several typescript files, several javascript files and other files as well, and typically you don't always want them mixed together. You might want to seperate them into different folders.
+* So typically in any project structure you will find a `public` folder which contains all the public files that we deploy to some web server at the end. It may containg the `index.html` file, the javascript file and css styling file.
+* Also there will be a `src` folder where our source code goes, like the typescript files and the stuffs we dont need to deploy to the web server.
+* So this is a more typical workflow
+* There is an easier way to manage all the typescript compilation in a project structure and that is using a `tsconfig` file. Use the following command to create a `tsconfig.json` file
+```
+tsc --init
+```
+* We can find various `compilerOptions` such as `target` which is the output version of the javascript file
+* Other options that we need to configure are `rootDir` and `outDir`
+```
+{
+    "compilerOptions": {
+        "target": "es2016",
+        "module": "commonjs",  
+        "rootDir": "./src", 
+        "outDir": "./public",
+    }
+}
+```
+* Now as we have said all our configuration in the `tsconfig.json` file we can just run the command `tsc` and it will compile all the files from folder specified in `rootDir` to javascript and place it in the folder specified in `outDir`
+```
+tsc
+```
+* To include the only the files from the `src` folders we add one more property called `include` in the `tsconfig.json` file. It will contain the array of string of folder names that we need to compile down to javascript
+```  
+{
+    "compilerOptions": {
+        "target": "es2016",
+        "module": "commonjs",  
+        "rootDir": "./src", 
+        "outDir": "./public",
+    },
+    "include": ["src"]
+}
+```

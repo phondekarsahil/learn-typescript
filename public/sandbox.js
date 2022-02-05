@@ -1,35 +1,36 @@
-var character = 'mario';
+"use strict";
+const character = 'mario';
 console.log(character);
-var inputs = document.querySelectorAll('input');
-inputs.forEach(function (input) {
+const inputs = document.querySelectorAll('input');
+inputs.forEach((input) => {
     console.log(input);
 });
-var newCharacter = "naruto";
-var age = 13;
-var isBlackBelt = false;
+let newCharacter = "naruto";
+let age = 13;
+let isBlackBelt = false;
 // newCharacter = 13; // not allowed
 newCharacter = "kakashi"; // allowed
 // age = "old"; // not allowed
 age = 25; // allowed
-var circ = function (diameter) {
+const circ = (diameter) => {
     return diameter * Math.PI;
 };
 console.log(circ(5));
 // arrays
-var names = ['luigi', 'mario', 'yoshi'];
+let names = ['luigi', 'mario', 'yoshi'];
 names.push('toad');
 // names.push(3);
 // names[1] = 3;
-var numbers = [10, 20, 12, 15];
+let numbers = [10, 20, 12, 15];
 numbers.push(25);
 // numbers.push('shaun');
 // numbers[0] = 'shaun';
-var mixed1 = ['ken', 4, 'chun-li', 8, 9];
+let mixed1 = ['ken', 4, 'chun-li', 8, 9];
 mixed1.push('ryu');
 mixed1.push(10);
 mixed1[0] = 3;
 // objects
-var ninja = {
+let ninja = {
     name: 'mario',
     belt: 'black',
     age: 30
@@ -41,47 +42,48 @@ ninja.name = 'ryu';
 ninja = {
     name: 'yoshi',
     belt: 'orange',
-    age: 40
+    age: 40,
+    // skills: ['running'],
 };
 // lesson 5
-var character1 = 'mario';
-var age1;
-var isLoggedIn;
+let character1 = 'mario';
+let age1;
+let isLoggedIn;
 // age = 'luigi';
 age = 30;
 // isLoggedIn = 25;
 isLoggedIn = true;
 // arrays
-var ninjas = [];
+let ninjas = [];
 ninjas.push('ryu');
 ninjas.push('chun-li');
 console.log(ninjas);
 // union types
-var mixed = [];
+let mixed = [];
 mixed.push('hello');
 mixed.push(false);
 mixed.push(20);
 console.log(mixed);
-var uid;
+let uid;
 // objects
-var ninjaOne;
+let ninjaOne;
 ninjaOne = { name: 'yoshi', age: 30 };
-var ninjaTwo;
+let ninjaTwo;
 ninjaTwo = { name: 'ken', age: 20, beltColour: 'black' };
 // lesson 6
-var age6 = 25;
+let age6 = 25;
 age6 = true;
 console.log(age6);
 age6 = 'hello';
 console.log(age6);
 age6 = { name: 'luigi' };
 console.log(age6);
-var mixed6 = [];
+let mixed6 = [];
 mixed.push(5);
 mixed.push('mario');
 mixed.push(false);
 console.log(mixed6);
-var ninja6;
+let ninja6;
 ninja6 = { name: 'yoshi', age: 25 };
 console.log(ninja6);
 ninja6 = { name: 25, age: 'yoshi' };
