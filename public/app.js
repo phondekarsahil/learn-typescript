@@ -1,14 +1,5 @@
-var me = {
-    name: "ds",
-    age: 25,
-    speak: function (text) {
-        console.log(text);
-    },
-    spend: function (amount) {
-        return amount;
-    },
-};
 import { Invoice } from './classes/Invoice.js';
+import { Payment } from './classes/Payment.js';
 var form = document.querySelector('.new-item-form');
 // console.log(form.children);
 var type = document.querySelector('#type');
@@ -17,8 +8,12 @@ var details = document.querySelector('#details');
 var amount = document.querySelector('#amount');
 form.addEventListener('submit', function (e) {
     e.preventDefault();
-    console.log(type.value, tofrom.value, details.value, amount.valueAsNumber);
+    var doc;
+    if (type.value === 'invoice') {
+        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    }
+    else {
+        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+    }
+    console.log(doc);
 });
-var inv1 = new Invoice("Sahil", "Work", 90);
-console.log(inv1.format());
-var invoices = [];

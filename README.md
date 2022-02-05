@@ -444,4 +444,40 @@ const me: IsPerson = {
     }, 
 }
 ```
-* We can also use interface as data type for variables and it enforces that structure on that variable.
+* We can also use interface as data type for object variables and it enforces that structure on that variable.
+
+## Interfaces with Classes
+
+* When using interfaces with classes we use `implements` keyword with the class declaration.
+
+**HasFormatter.ts**
+```
+export interface HasFormatter {
+    format(): string;
+}
+```
+* Whichever class `implements` an `interface` must have the properties mentioned in that interface.
+
+**Invoice.ts**
+```
+export class Invoice implements HasFormatter {
+    constructor(    
+        readonly client: string,
+        private details: string,
+        public amount: number
+        ){}
+
+    format() {
+        return `${this.client} owes Rs ${this.amount} for ${this.details}`;
+    }
+}
+```
+* This ensures that every object we create using this class has the specified interface properties.
+* Interface used as data type can also be used to indicate that the object of the class implements that interface. Only objects that implements that interface can be stored in that variable.
+**app.ts**
+```
+let docOne: HasFormatter;
+
+/* this verifies that the object of the class has implemented that interface */
+docOne = new Invoice("Sahil", "Work", 250);
+```
