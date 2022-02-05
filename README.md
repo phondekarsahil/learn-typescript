@@ -263,3 +263,17 @@ const greet = (user: objWithName) => {
 }
 ```
 
+## Function Signature
+
+* When defining a function, or explicitly declaring a variable as a function we use `Function` type. But we can be more specific about the function type by using function signatures.
+```
+let greet1: Function;
+let greet2: (a: string, b: string) => void;
+let calc: (a: number, b: number, c: string) => number;
+
+calc = (num1: number, num2: number, action: string) => {
+    if(action === 'add') {
+      return num1 + num2;
+    }
+    return num1 - num2;
+}
